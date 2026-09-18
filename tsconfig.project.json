@@ -1,0 +1,14 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./packages/adblocker/tsconfig.json"
+    },
+    {
+      "path": "./packages/adblocker-extended-selectors/tsconfig.json"
+    },
+    {
+      "path": "./packages/adblocker-content/tsconfig.json"
+    }
+  ]
+}
