@@ -1,5 +1,5 @@
-engine.bin
-dist
+
+!dist
 node_modules
 .nyc_output
 .DS_Store
