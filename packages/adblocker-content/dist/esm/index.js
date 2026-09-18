@@ -54,14 +54,8 @@ function getElementsFromMutations(mutations) {
     }
     return elements;
 }
-/**
- * WARNING: this function should be self-contained and not rely on any global
- * symbol. That constraint needs to be fulfilled because this function can
- * potentially be injected in content-script (e.g.: see PuppeteerBlocker for
- * more details).
- */
+
 export function extractFeaturesFromDOM(roots = [document.documentElement]) {
-    // NOTE: This cannot be global as puppeteer needs to be able to serialize this function.
     const ignoredTags = new Set(['br', 'head', 'link', 'meta', 'script', 'style', 's']);
     const classes = new Set();
     const hrefs = new Set();
@@ -228,7 +222,7 @@ function insertNode(node, document) {
         parent.appendChild(node);
     }
 }
-function injectScriptlet(s, doc) {
+export function injectScriptlet(s, doc) {
     const script = doc.createElement('script');
     script.type = 'text/javascript';
     script.id = SCRIPT_ID;
@@ -236,33 +230,5 @@ function injectScriptlet(s, doc) {
     script.appendChild(doc.createTextNode(autoRemoveScript(s)));
     insertNode(script, doc);
 }
-function isFirefox(doc) {
-    try {
-        return doc.defaultView?.navigator?.userAgent?.indexOf('Firefox') !== -1;
-    }
-    catch (e) {
-        return false;
-    }
-}
-async function injectScriptletFirefox(s, doc) {
-    const win = doc.defaultView;
-    const script = doc.createElement('script');
-    script.async = false;
-    script.id = SCRIPT_ID;
-    const blob = new win.Blob([autoRemoveScript(s)], { type: 'text/javascript; charset=utf-8' });
-    const url = win.URL.createObjectURL(blob);
-    // a hack for tests to that allows for async URL.createObjectURL
-    // eslint-disable-next-line @typescript-eslint/await-thenable
-    script.src = await url;
-    insertNode(script, doc);
-    win.URL.revokeObjectURL(url);
-}
-export function injectScript(s, doc) {
-    if (isFirefox(doc)) {
-        injectScriptletFirefox(s, doc);
-    }
-    else {
-        injectScriptlet(s, doc);
-    }
-}
+
 //# sourceMappingURL=index.js.map

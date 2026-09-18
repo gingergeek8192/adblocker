@@ -187,6 +187,15 @@ importers:
         specifier: ^6.0.3
         version: 6.0.3
 
+  packages/electron-ad-block:
+    dependencies:
+      '@ghostery/adblocker':
+        specifier: ^2.18.2
+        version: 2.18.2
+      quoted-printable:
+        specifier: ^1.0.1
+        version: 1.0.1
+
 packages:
 
   '@asamuzakjp/css-color@7.0.0':
@@ -583,6 +592,9 @@ packages:
 
   '@ghostery/adblocker-extended-selectors@2.18.2':
     resolution: {integrity: sha512-doKNShBk3+czQL08UkrysHkCPeG/kNPlXvz3DH7SXxD9Y78ovWkEAhjeR+upoan3fomJJuK3dD+IrlofnjckYw==}
+
+  '@ghostery/adblocker@2.18.2':
+    resolution: {integrity: sha512-x6zEkf1dHSN0t4ExLmuN6nIgH0oAi6laoKe5yGsiIB4jkEvutea1PJgxgRUIjWfNbDRmkf4GjUtuqQFZgvQG1w==}
 
   '@ghostery/url-parser@1.3.1':
     resolution: {integrity: sha512-QKqGi+7aDQ4RcyHyCwgEk6B9vWnsBP4Q7htaN0zPJV3ATqTKEQDtSTb9c/AN586oJUDs24YXKcwFYwNweY/YjQ==}
@@ -3247,6 +3259,10 @@ packages:
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
+  quoted-printable@1.0.1:
+    resolution: {integrity: sha512-cihC68OcGiQOjGiXuo5Jk6XHANTHl1K4JLk/xlEJRTIXfy19Sg6XzB95XonYgr+1rB88bCpr7WZE7D7AlZow4g==}
+    hasBin: true
+
   randombytes@2.1.0:
     resolution: {integrity: sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==}
 
@@ -3762,6 +3778,9 @@ packages:
   user-home@2.0.0:
     resolution: {integrity: sha512-KMWqdlOcjCYdtIJpicDSFBQ8nFwS2i9sslAd6f4+CBGcU4gist2REnr2fxj2YocvJFxSF3ZOHLYLVZnUxv4BZQ==}
     engines: {node: '>=0.10.0'}
+
+  utf8@2.1.2:
+    resolution: {integrity: sha512-QXo+O/QkLP/x1nyi54uQiG0XrODxdysuQvE5dtVqv7F5K2Qb6FsN+qbr6KhF5wQ20tfcV3VQp0/2x1e1MRSPWg==}
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
@@ -4393,6 +4412,16 @@ snapshots:
       '@ghostery/adblocker-extended-selectors': 2.18.2
 
   '@ghostery/adblocker-extended-selectors@2.18.2': {}
+
+  '@ghostery/adblocker@2.18.2':
+    dependencies:
+      '@ghostery/adblocker-content': 2.18.2
+      '@ghostery/adblocker-extended-selectors': 2.18.2
+      '@ghostery/url-parser': 1.3.1
+      '@remusao/guess-url-type': 2.1.0
+      '@remusao/small': 2.1.0
+      '@remusao/smaz': 2.2.0
+      tldts-experimental: 7.4.13
 
   '@ghostery/url-parser@1.3.1':
     dependencies:
@@ -7418,6 +7447,10 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
+  quoted-printable@1.0.1:
+    dependencies:
+      utf8: 2.1.2
+
   randombytes@2.1.0:
     dependencies:
       safe-buffer: 5.2.1
@@ -7935,6 +7968,8 @@ snapshots:
   user-home@2.0.0:
     dependencies:
       os-homedir: 1.0.2
+
+  utf8@2.1.2: {}
 
   util-deprecate@1.0.2: {}
 

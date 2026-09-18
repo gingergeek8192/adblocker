@@ -1,0 +1,13 @@
+{
+  "name": "electron-ad-block",
+  "version": "1.0.0",
+  "description": "Electron CDP adblocker",
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "dependencies": {
+    "@ghostery/adblocker": "^2.18.2",
+    "quoted-printable": "^1.0.1"
+  }
+}
