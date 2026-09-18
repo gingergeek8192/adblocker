@@ -47,7 +47,7 @@
     "clean": "rimraf dist coverage .tshy .tshy-build .nyc_output .rollup.cache",
     "lint": "eslint src test",
     "build": "tshy && rollup --config ./rollup.config.js",
-    "test": "yarn test:unit && yarn test:browser",
+    "test": "pnpm run test:unit && pnpm run test:browser",
     "test:unit": "nyc mocha --config ../../.mocharc.json test/unit",
     "test:browser": "yarn build && playwright test test/e2e/browser.test.ts"
   },

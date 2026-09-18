@@ -6,42 +6,6 @@
   "type": "module",
   "description": "Ghostery adblocker",
   "contributors": [
-    {
-      "name": "Rémi Berson",
-      "email": "remi@cliqz.com"
-    },
-    {
-      "name": "Zhonghao Yu",
-      "email": "zhonghao@cliqz.com"
-    },
-    {
-      "name": "Krzysztof Jan Modras",
-      "email": "chrmod@chrmod.net"
-    },
-    {
-      "name": "Raymond Hill",
-      "email": "gorhill@users.noreply.github.com"
-    },
-    {
-      "name": "Eleni",
-      "email": "eleni@cliqz.com"
-    },
-    {
-      "name": "ecnmst",
-      "email": "ecnmst@users.noreply.github.com"
-    },
-    {
-      "name": "Asif",
-      "email": "arshadasif0312@gmail.com"
-    },
-    {
-      "name": "Anton Lazarev",
-      "email": "antonok35@gmail.com"
-    },
-    {
-      "name": "Andriy Kornatskyy",
-      "email": "andriy.kornatskyy@live.com"
-    }
   ],
   "license": "MPL-2.0",
   "homepage": "https://github.com/ghostery/adblocker#readme",
@@ -53,117 +17,32 @@
     "type": "git",
     "url": "git+ssh://git@github.com/ghostery/adblocker.git"
   },
-  "workspaces": [
-    "packages/*"
-  ],
-  "packageManager": "yarn@4.18.0",
+  "packageManager": "pnpm@10.0.0",
   "scripts": {
-    "lint": "lerna run --parallel lint",
     "build": "lerna run build",
-    "test": "yarn workspaces foreach -A run test",
+    "test": "pnpm -r run test",
     "clean": "lerna run --parallel clean && lerna clean --yes",
-    "release": "auto shipit -v",
-    "format-check": "prettier './packages/**/*.ts' --check",
-    "format-fix": "prettier './packages/**/*.ts' --write"
+    "release": "auto shipit -v"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "@types/benchmark": "^2.1.5",
     "@types/node": "26.2.0",
     "auto": "^11.3.6",
-    "benchmark": "^2.1.4",
     "chalk": "^6.0.0",
-    "eslint": "^10.8.1",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.6",
     "globals": "^17.11.0",
     "lerna": "^10.0.0",
-    "prettier": "^3.9.6",
     "tsx": "^4.23.12",
-    "typescript": "^6.0.3",
-    "typescript-eslint": "8.67.0"
+    "typescript": "^6.0.3"
   },
   "auto": {
     "name": "Ghostery Adblocker Bot",
     "email": "ghostery-adblocker-bot@users.noreply.github.com",
     "plugins": [
-      "npm"
-    ],
-    "labels": [
-      {
-        "name": "PR: Breaking Change :boom:",
-        "description": "Increment major version when merged",
-        "changelogTitle": ":boom: Breaking Change",
-        "releaseType": "major",
-        "overwrite": true,
-        "color": "#e2372b"
-      },
-      {
-        "name": "PR: New Feature :rocket:",
-        "description": "Increment minor version when merged",
-        "changelogTitle": ":rocket: New Feature",
-        "releaseType": "minor",
-        "overwrite": true,
-        "color": "#2e449b"
-      },
-      {
-        "name": "PR: Performance :running_woman:",
-        "description": "Increment minor version when merged",
-        "changelogTitle": ":running_woman: Performance",
-        "releaseType": "minor",
-        "overwrite": true,
-        "color": "#ead99f"
-      },
-      {
-        "name": "PR: Bug Fix :bug:",
-        "description": "Increment patch version when merged",
-        "changelogTitle": ":bug: Bug Fix",
-        "releaseType": "patch",
-        "overwrite": true,
-        "color": "#56dd97"
-      },
-      {
-        "name": "PR: Polish :nail_care:",
-        "description": "Increment patch version when merged",
-        "changelogTitle": ":nail_care: Polish",
-        "releaseType": "patch",
-        "overwrite": true,
-        "color": "#a9bbe8"
-      },
-      {
-        "name": "PR: Internal :house:",
-        "description": "Changes only affect internals",
-        "changelogTitle": ":house: Internal",
-        "releaseType": "none",
-        "overwrite": true,
-        "color": "#5b1482"
-      },
-      {
-        "name": "PR: Docs :memo:",
-        "description": "Changes only affect documentation",
-        "changelogTitle": ":memo: Documentation",
-        "releaseType": "none",
-        "overwrite": true,
-        "color": "#d2f28a"
-      },
-      {
-        "name": "skip-release",
-        "description": "Preserve the current version when merged",
-        "releaseType": "skip",
-        "overwrite": true,
-        "color": "#e069cf"
-      },
-      {
-        "name": "PR: Dependencies :nut_and_bolt:",
-        "description": "Changes only update dependencies",
-        "changelogTitle": ":nut_and_bolt: Dependencies",
-        "releaseType": "none",
-        "overwrite": true,
-        "color": "#5dbdcc"
-      }
+      "pnpm"
     ]
   },
-  "resolutions": {
-    "@remusao/counter@npm:^2.1.0": "patch:@remusao/counter@npm%3A2.1.0#~/.yarn/patches/@remusao-counter-npm-2.1.0-3a2b9a70d3.patch"
+  "pnpm": {
+    "patchedDependencies": {
+      "@remusao/counter@2.1.0": "patches/@remusao-counter-npm-2.1.0-3a2b9a70d3.patch"
+    }
   }
 }

@@ -1,9 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "references": [
-    { "path": "../adblocker-puppeteer/tsconfig.json" }
-  ],
-  "files": [
-    "./src/index.ts"
-  ]
-}

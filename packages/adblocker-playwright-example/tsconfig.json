@@ -1,9 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "references": [
-    { "path": "../adblocker-playwright/tsconfig.json" }
-  ],
-  "files": [
-    "./src/index.ts"
-  ]
-}
